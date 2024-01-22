@@ -10,12 +10,6 @@ void addUser(String name, String address, int phone){
 userDetail.add([name,address,phone]);
 
 notifyListeners();
-
-
 }
-
-
-
-
 
 }

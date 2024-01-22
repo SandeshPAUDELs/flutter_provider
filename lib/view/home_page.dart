@@ -28,7 +28,6 @@ class _HomePageState extends State<HomePage> {
         title: Text('Add New User'),
         content: Column(
         children: [
-          
           TextField(
             controller: nameController,
             decoration: InputDecoration(border: OutlineInputBorder(), hintText: 'Name'),
@@ -37,15 +36,12 @@ class _HomePageState extends State<HomePage> {
           ,TextField(
             controller: addressController,
             decoration: InputDecoration(border: OutlineInputBorder(), hintText: 'Address'),
-            
           )
           ,TextField(
             controller: phoneController,
-            decoration: InputDecoration(border: OutlineInputBorder(), hintText: 'Phone'),
-            
+            decoration: InputDecoration(border: OutlineInputBorder(), hintText: 'Phone'), 
           )],),
           actions: [OutlinedButton(onPressed: (){
-
             context.read<User>().addUser(nameController.text, addressController.text, int.parse(phoneController.text));
             Navigator.of(context).pop();
             nameController.clear();
@@ -60,7 +56,6 @@ class _HomePageState extends State<HomePage> {
             nameController.clear();
             addressController.clear();
             phoneController.clear();
-
           }, child: Text('Cancel'))],
       )), child: Icon(Icons.add),),
       body: Padding(padding: EdgeInsets.only(left: 8, right: 8, top: 8),
@@ -71,15 +66,13 @@ class _HomePageState extends State<HomePage> {
           child: ListTile(
             title: Text(context.watch<User>().userDetail[index][0]), 
             subtitle: Text(context.watch<User>().userDetail[index][2].toString()),
-            tileColor: Colors.amber,
-                 
-            // onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsPage(index: index),)),
-            onTap: () => context.go('/${RouteName.second}'),
+            tileColor: Colors.amber,      
+           // onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsPage(index: index),)),
+            onTap: () => context.go('/second/${index}'),
             )
         ),
         )
       ),
-
     );
   }
 }
